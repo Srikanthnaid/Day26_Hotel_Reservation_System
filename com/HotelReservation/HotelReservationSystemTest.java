@@ -62,7 +62,16 @@ public class HotelReservationSystemTest {
 		obj.addHotel();
 		Assertions.assertEquals(200, obj.findCheapestBestBestRatedHotel("2020-09-11", "2020-09-12"));
 	}
+
 	// Output :-
 	// The cheapest hotel is Bridgewood, Rating 4, Total Rates = $200
-
+	// UC7
+	@Test
+	public void givenDateRangeShouldReturnTheBestRatedHotel() {
+		HotelReservationSystem obj = new HotelReservationSystem();
+		obj.addHotel();
+		Assertions.assertEquals(370, obj.findBestRatedHotel("2020-09-11", "2020-09-12"));
+	}
+	// Output :-
+	// The Best Rated hotel is: Ridgewood, Rating: 5, Total Rates = $370
 }
