@@ -90,6 +90,16 @@ public class HotelReservationSystem {
 		DayOfWeek day1 = LocalDate.parse(d1).getDayOfWeek();
 		DayOfWeek day2 = LocalDate.parse(d2).getDayOfWeek();
 
+		/**
+		 * 1. Here, we've made a list of Hotel objects. 2. We're streaming that list,
+		 * and using the sorted() method with a Comparator. 3. we're using the
+		 * comparing() method, and supplying the weekdayRate the comparing() method,
+		 * which accepts a sorting key function just like the other ones. 4. All of them
+		 * simply return a comparator, with the passed function as the sorting key. 5.If
+		 * we wanted save the results of sorting after the program was executed, we
+		 * would have to collect() the data back in a Collection
+		 *
+		 */
 		List<Hotel> hotelObjList = hotelReservation.values().stream()
 				.sorted(Comparator.comparing(Hotel -> Hotel.weekdayRate)).collect(Collectors.toList());
 		/**
@@ -137,6 +147,16 @@ public class HotelReservationSystem {
 			weekEnds++;
 		}
 		if (weekEnds == 0) {
+			/**
+			 * 1. Here, we've made a list of Hotel objects. 2. We're streaming that list,
+			 * and using the sorted() method with a Comparator. 3. we're using the
+			 * comparing() method, and supplying the weekdayRate the comparing() method,
+			 * which accepts a sorting key function just like the other ones. 4. All of them
+			 * simply return a comparator, with the passed function as the sorting key. 5.If
+			 * we wanted save the results of sorting after the program was executed, we
+			 * would have to collect() the data back in a Collection
+			 *
+			 */
 			List<Hotel> hotelObjList = hotelReservation.values().stream()
 					.sorted(Comparator.comparing(Hotel -> Hotel.weekdayRate)).collect(Collectors.toList());
 			/**
@@ -155,6 +175,16 @@ public class HotelReservationSystem {
 			 * then this condition is executed
 			 */
 		} else if (weekEnds == 2) {
+			/**
+			 * 1. Here, we've made a list of Hotel objects. 2. We're streaming that list,
+			 * and using the sorted() method with a Comparator. 3. we're using the
+			 * comparing() method, and supplying the weekendRate the comparing() method,
+			 * which accepts a sorting key function just like the other ones. 4. All of them
+			 * simply return a comparator, with the passed function as the sorting key. 5.If
+			 * we wanted save the results of sorting after the program was executed, we
+			 * would have to collect() the data back in a Collection
+			 *
+			 */
 			List<Hotel> hotelObjList = hotelReservation.values().stream()
 					.sorted(Comparator.comparing(Hotel -> Hotel.weekendRate)).collect(Collectors.toList());
 
@@ -169,6 +199,16 @@ public class HotelReservationSystem {
 			 * if 1st condition is not true then else statement execute
 			 */
 		} else {
+			/**
+			 * 1. Here, we've made a list of Hotel objects. 2. We're streaming that list,
+			 * and using the sorted() method with a Comparator. 3. we're using the
+			 * comparing() method, and supplying the avgRate the comparing() method, which
+			 * accepts a sorting key function just like the other ones. 4. All of them
+			 * simply return a comparator, with the passed function as the sorting key. 5.If
+			 * we wanted save the results of sorting after the program was executed, we
+			 * would have to collect() the data back in a Collection
+			 *
+			 */
 			List<Hotel> hotelObjList = hotelReservation.values().stream()
 					.sorted(Comparator.comparing(Hotel -> Hotel.avgRate)).collect(Collectors.toList());
 			/**
@@ -228,6 +268,16 @@ public class HotelReservationSystem {
 			weekEnds++;
 		}
 		if (weekEnds == 0) {
+			/**
+			 * 1. Here, we've made a list of Hotel objects. 2. We're streaming that list,
+			 * and using the sorted() method with a Comparator. 3. we're using the
+			 * comparing() method, and supplying the weekdayRate the comparing() method,
+			 * which accepts a sorting key function just like the other ones. 4. All of them
+			 * simply return a comparator, with the passed function as the sorting key. 5.If
+			 * we wanted save the results of sorting after the program was executed, we
+			 * would have to collect() the data back in a Collection
+			 *
+			 */
 			List<Hotel> hotelObjList = hotelReservation.values().stream()
 					.sorted(Comparator.comparing(Hotel -> Hotel.weekdayRate)).collect(Collectors.toList());
 			/**
@@ -248,7 +298,7 @@ public class HotelReservationSystem {
 			/**
 			 * 1. Here, we've made a list of Hotel objects. 2. We're streaming that list,
 			 * and using the sorted() method with a Comparator. 3. we're using the
-			 * comparing() method, and supplying the weekendRateuse the comparing() method,
+			 * comparing() method, and supplying the weekendRate the comparing() method,
 			 * which accepts a sorting key function just like the other ones. 4. All of them
 			 * simply return a comparator, with the passed function as the sorting key. 5.If
 			 * we wanted save the results of sorting after the program was executed, we
@@ -389,6 +439,127 @@ public class HotelReservationSystem {
 	}
 
 	/**
+	 * Creating parameterized method name as findCheapestHotelForRewardCustomer
+	 * Method for finding the cheapest Hotel for given dates for Reward Customer
+	 *
+	 * @param d1 day1 is passed as String parameter
+	 * @param d2 day2 is passed as String parameter
+	 * @return returns the cheapest total rates
+	 */
+	public int findCheapestHotelForRewardCustomer(String d1, String d2) {
+		/**
+		 * variable
+		 */
+		int weekEnds = 0;
+		/**
+		 * getting the parsed local date for day1 and day2
+		 */
+		DayOfWeek day1 = LocalDate.parse(d1).getDayOfWeek();
+		DayOfWeek day2 = LocalDate.parse(d2).getDayOfWeek();
+		/**
+		 * using logical or operator. they returns true if one of the conditions is true
+		 * check if day1 is sunday or saturday
+		 */
+		if (day1.equals(DayOfWeek.SUNDAY) || day1.equals(DayOfWeek.SATURDAY)) {
+			weekEnds++;
+		}
+		/**
+		 * check if day2 is sunday or saturday
+		 */
+		if (day2.equals(DayOfWeek.SUNDAY) || day2.equals(DayOfWeek.SATURDAY)) {
+			weekEnds++;
+		}
+		if (weekEnds == 0) {
+			/**
+			 * 1. Here, we've made a list of Hotel objects. 2. We're streaming that list,
+			 * and using the sorted() method with a Comparator. 3. we're using the
+			 * comparing() method, and supplying the specialWeekdayRate the comparing()
+			 * method, which accepts a sorting key function just like the other ones. 4. All
+			 * of them simply return a comparator, with the passed function as the sorting
+			 * key. 5.If we wanted save the results of sorting after the program was
+			 * executed, we would have to collect() the data back in a Collection
+			 *
+			 */
+			List<Hotel> hotelObjList = hotelReservation.values().stream()
+					.sorted(Comparator.comparing(Hotel -> Hotel.specialWeekdayRate)).collect(Collectors.toList());
+			System.out.println("The cheapest hotel is " + hotelObjList.get(0).getHotelName() + ", Rating : "
+					+ hotelObjList.get(0).getRating() + ", Total Rates = $"
+					+ hotelObjList.get(0).getSpecialWeekdayRate() * 2);
+			/**
+			 * 0th position is lakewood lakewood = special Weekday rate * 2 = 80 * 2 =$160
+			 */
+			return hotelObjList.get(0).getSpecialWeekdayRate() * 2;
+		}
+		if (weekEnds == 2) {
+			/**
+			 * 1. Here, we've made a list of Hotel objects. 2. We're streaming that list,
+			 * and using the sorted() method with a Comparator. 3. we're using the
+			 * comparing() method, and supplying the specialWeekdayRate the comparing()
+			 * method, which accepts a sorting key function just like the other ones. 4. All
+			 * of them simply return a comparator, with the passed function as the sorting
+			 * key. 5.If we wanted save the results of sorting after the program was
+			 * executed, we would have to collect() the data back in a Collection
+			 *
+			 */
+			List<Hotel> hotelObjList = hotelReservation.values().stream()
+					.sorted(Comparator.comparing(Hotel -> Hotel.specialWeekendRate)).collect(Collectors.toList());
+			System.out.println("The cheapest hotel is " + hotelObjList.get(0).getHotelName() + ", Rating : "
+					+ hotelObjList.get(0).getRating() + ", Total Rates = $"
+					+ hotelObjList.get(0).getSpecialWeekendRate() * 2);
+			/**
+			 * lakewood is 0th position in the hotel list lakewood = specialweekendrate * 2
+			 * = 80 * 2 = $160
+			 */
+			return hotelObjList.get(0).getSpecialWeekendRate() * 2;
+		} else {
+			/**
+			 * 1. Here, we've made a list of Hotel objects. 2. We're streaming that list,
+			 * and using the sorted() method with a Comparator. 3. we're using the
+			 * comparing() method, and supplying the specialAvgRate the comparing() method,
+			 * which accepts a sorting key function just like the other ones. 4. All of them
+			 * simply return a comparator, with the passed function as the sorting key. 5.If
+			 * we wanted save the results of sorting after the program was executed, we
+			 * would have to collect() the data back in a Collection
+			 *
+			 */
+			List<Hotel> hotelObjList = hotelReservation.values().stream()
+					.sorted(Comparator.comparing(Hotel -> Hotel.specialAvgRate)).collect(Collectors.toList());
+			if (hotelObjList.get(0).getSpecialAvgRate() == hotelObjList.get(1).getSpecialAvgRate()
+					&& hotelObjList.get(0).getRating() < hotelObjList.get(1).getRating()) {
+				System.out.println("The cheapest hotel is " + hotelObjList.get(1).getHotelName() + ", Rating "
+						+ hotelObjList.get(1).getRating() + ", Total Rates = $"
+						+ (hotelObjList.get(1).getSpecialWeekdayRate() + hotelObjList.get(1).getSpecialWeekendRate()));
+				/**
+				 * Bridgewood is 1th position in hotel list specialAvgRate = specialWeekdayRate
+				 * + specialWeekendRate = 110 + 50 = $160
+				 */
+				return hotelObjList.get(1).getSpecialAvgRate();
+			}
+			if (hotelObjList.get(0).getSpecialAvgRate() == hotelObjList.get(1).getSpecialAvgRate()
+					&& hotelObjList.get(0).getRating() > hotelObjList.get(1).getRating()) {
+				System.out.println("The cheapest hotel is " + hotelObjList.get(0).getHotelName() + ", Rating "
+						+ hotelObjList.get(0).getRating() + ", Total Rates = $"
+						+ (hotelObjList.get(0).getSpecialWeekdayRate() + hotelObjList.get(0).getSpecialWeekendRate()));
+				/**
+				 * 0th position is lakewood in hotel list specialAvgRate = specialWeekdayRate +
+				 * specialWeekendRate = 80 + 80 =$160
+				 *
+				 */
+				return hotelObjList.get(0).getSpecialAvgRate();
+			} else {
+				System.out.println("The cheapest hotel is " + hotelObjList.get(0).getHotelName() + ", Rating "
+						+ hotelObjList.get(0).getRating() + ", Total Rates = $"
+						+ (hotelObjList.get(0).getSpecialWeekdayRate() + hotelObjList.get(0).getSpecialWeekendRate()));
+				/**
+				 * 0th position lakewood in hotel list SpecialWeekdayrate + specialweekendrate
+				 * 80 + 80 $160
+				 */
+				return hotelObjList.get(0).getSpecialWeekdayRate() + hotelObjList.get(0).getSpecialWeekendRate();
+			}
+		}
+	}
+
+	/**
 	 * create a main method,all program execute in main method
 	 * 
 	 * @param args no arguments
@@ -425,6 +596,10 @@ public class HotelReservationSystem {
 		 * calling findBestRatedHotel method from object name as hotel
 		 */
 		hotel.findBestRatedHotel("2020-09-11", "2020-09-12");
+		/**
+		 * calling findCheapestHotelForRewardCustomer method from object name as hotel
+		 */
+		hotel.findCheapestHotelForRewardCustomer("2020-09-11", "2020-09-12");
 	}
 
 }
