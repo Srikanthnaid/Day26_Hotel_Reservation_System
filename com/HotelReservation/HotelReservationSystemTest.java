@@ -1,11 +1,5 @@
 package com.HotelReservation;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-import java.time.LocalDate;
-import java.time.Month;
-
-import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -96,4 +90,12 @@ public class HotelReservationSystemTest {
 	}
 	// Output :-
 	// The cheapest hotel is Ridgewood, Rating 5, Total Rates = $140
+
+	// UC11
+	@Test
+	public void givenDateShouldReturnTrueIfDateIsValid() {
+		HotelReservationSystem obj = new HotelReservationSystem();
+		obj.addHotel();
+		Assertions.assertTrue(obj.isDateValid("2020-09-11", "2020-09-12"));
+	}
 }
